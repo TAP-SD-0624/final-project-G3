@@ -1,4 +1,5 @@
-class APIError extends Error { // a class to create errors that hold error message and status code.
+// a class to create errors that hold error message and status code
+class APIError extends Error {
 	statusCode: number;
 
 	constructor(message: string, statusCode: number) {
