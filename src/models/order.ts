@@ -39,7 +39,7 @@ Order.init(
   {
     sequelize,
     modelName: "Order",
-    tableName: "order",
+    tableName: "orders",
     timestamps: true,
     updatedAt: false,
   }
