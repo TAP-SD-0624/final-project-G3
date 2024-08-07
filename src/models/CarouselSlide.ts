@@ -1,9 +1,8 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../database"; // Adjust the import according to your setup
+import sequelize from "../database";  
 
 class CarouselSlide extends Model {
-  public id!: string;
-  public categoryID!: string;
+  public id!: string; 
   public slideOrder!: number;
   public imageUrl!: string;
   public title!: string;
@@ -16,13 +15,12 @@ CarouselSlide.init(
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      allowNull: false,
     },
     categoryID: {
       type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: 'categories', // Assumes you have a 'categories' table
+        model: 'categories',
         key: 'id',
       },
     },
@@ -36,19 +34,19 @@ CarouselSlide.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
-      type: DataTypes.TEXT,
-      allowNull: true, // Assuming description is optional
+      type: DataTypes.STRING,
+      allowNull: true, 
     },
   },
   {
     sequelize,
     modelName: "CarouselSlide",
-    tableName: "carousel_slides",
-    timestamps: false,
-    underscored: true,
+    tableName: "carouselSlides",
+    timestamps: true,
+    updatedAt: false,
   }
 );
 
