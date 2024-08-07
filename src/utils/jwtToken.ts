@@ -1,52 +1,32 @@
 import jwt from "jsonwebtoken";
-import User from "../models/User";
+import User from "../models/user";
 import dotenv from 'dotenv';
- 
-// Load environment variables
+  
 dotenv.config(); 
-
-// Constants for token expiration
-const ACCESS_TOKEN_EXPIRES_IN = "15m"; // Access tokens typically have a short expiration time
-const REFRESH_TOKEN_EXPIRES_IN = "7d"; // Refresh tokens can have a longer expiration time
-const SECURE_ALGORITH = "HS256" ;
+ 
+const TOKEN_EXPIRES_IN = "1m";   
+const SECURE_ALGORITH = "HS256" ; // (Hash-based Message Authentication Code) with SHA-256 hashing
+const ECOMMERCE_SYSTEM = "E-commerce-System";
 const secretTokenKey = process.env.JWT_SECRET as string;
 
 
-// Function to generate an access token
-const generateAccessToken = (user: User) => {
+const generateToken = (user: User) => {
   const payload = {
     sub: user.id,  
-    iss: "E-commerce-System", 
-    aud: "E-commerce-System",  
+    iss: ECOMMERCE_SYSTEM, 
+    aud: ECOMMERCE_SYSTEM,  
     nbf: Math.floor(Date.now() / 1000),  
-    jti: `${user.id}-${Date.now()}`,  
+    jti: `${user.id}-${Date.now()}`,  // JWT ID. + date
     role: user.role,  
   };
 
   return jwt.sign(payload, secretTokenKey, {
-    algorithm: SECURE_ALGORITH, // Use a secure algorithm
-    expiresIn: ACCESS_TOKEN_EXPIRES_IN, // Set token expiration time
+    algorithm: SECURE_ALGORITH, 
+    expiresIn: TOKEN_EXPIRES_IN, 
   });
 };
+ 
 
-// Function to generate a refresh token
-const generateRefreshToken = (user: User) => {
-  const payload = {
-    sub: user.id,  
-    iss: "E-commerce-System", 
-    aud: "E-commerce-System",  
-    nbf: Math.floor(Date.now() / 1000),  
-    jti: `${user.id}-${Date.now()}`,  
-    role: user.role,  
-  };
-
-  return jwt.sign(payload, secretTokenKey, {
-    algorithm: SECURE_ALGORITH, // Use a secure algorithm
-    expiresIn: REFRESH_TOKEN_EXPIRES_IN, // Set token expiration time
-  });
-};
-
-// Function to decode and verify a JWT token
 const decodeToken = (token: string) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
@@ -57,5 +37,4 @@ const decodeToken = (token: string) => {
 };
 
 
-// Export the functions for use in other parts of the application
-export { generateAccessToken, generateRefreshToken, decodeToken };
+export { generateToken , decodeToken };

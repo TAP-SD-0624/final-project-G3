@@ -18,7 +18,6 @@ User.init(
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      allowNull: false,
     },
     firstName: {
       type: DataTypes.STRING,
@@ -51,8 +50,8 @@ User.init(
     sequelize,
     modelName: "User",
     tableName: "users",
-    timestamps: false,
-    underscored: true,
+    updatedAt: false,
+    timestamps: true,
   }
 );
 

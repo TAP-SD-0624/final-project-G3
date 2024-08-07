@@ -6,7 +6,6 @@ dotenv.config();
 
 const PORT: number | undefined = Number(process.env.PORT) || 80;
 
-// Sync database and start server
 const startServer = async () => {
   try {
     await sequelize.sync(); // { force: true } for development only to drop and recreate tables
