@@ -5,6 +5,11 @@ class OrderItem extends Model {}
 
 OrderItem.init(
   {
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -17,7 +22,7 @@ OrderItem.init(
   {
     sequelize,
     modelName: "OrderItem",
-    tableName: "OrderItem",
+    tableName: "orderItems",
     timestamps: true,
     updatedAt: false,
   }
