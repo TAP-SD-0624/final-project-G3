@@ -20,20 +20,9 @@ Order.init(
       allowNull: false,
     },
     orderStatus: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM(...Object.values(OrderStatus)),
+      defaultValue: OrderStatus.Completed,
       allowNull: false,
-      validate: {
-        isIn: {
-          args: [
-            [
-              OrderStatus.Completed,
-              OrderStatus.Processing,
-              OrderStatus.Canceled,
-            ],
-          ],
-          msg: "Invalid order status",
-        },
-      },
     },
   },
   {
