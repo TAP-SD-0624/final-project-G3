@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-// import UserRole from "../enums/userRoles";
+import UserRole from "../enums/userRoles";
 import sequelize from "../database";
 
 class User extends Model {
@@ -9,7 +9,7 @@ class User extends Model {
   email!: string;
   dateOfBirth!: Date;
   password!: string;
-  //   role!: UserRole;
+  role!: UserRole;
 }
 
 User.init(
@@ -40,11 +40,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // role: {
-    //   type: DataTypes.ENUM(...Object.values(UserRole)),
-    //   defaultValue: "user",
-    //   allowNull: false,
-    // },
+    role: {
+      type: DataTypes.ENUM(...Object.values(UserRole)),
+      defaultValue: "user",
+      allowNull: false,
+    },
   },
   {
     sequelize,
