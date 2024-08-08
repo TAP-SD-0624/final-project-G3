@@ -2,7 +2,7 @@ import { Model, DataTypes } from "sequelize";
 import sequelize from "../database";
 
 class Review extends Model {
-  id!: number;
+  id!: string;
   rating!: number;
   comment!: string;
 }
