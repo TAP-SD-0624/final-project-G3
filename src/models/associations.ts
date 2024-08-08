@@ -9,7 +9,7 @@ import User from './User';
 import WishList from './Wishlist';
 import Review from './Review';
 
-const associateModels = () => {
+const associateModels = (): void => {
   // --------------- User Associations --------------- :
 
   // A user has one order

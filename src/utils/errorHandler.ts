@@ -3,7 +3,7 @@ import { AsyncRequestHandler } from '../utils/functions/AsyncRequestHandler';
 // to wrap controllers calls in a call that has a catch nested to it so errors will be moved to the global error hanlder
 const errorHandler =
   (fn: AsyncRequestHandler) =>
-  (req: Request, res: Response, next: NextFunction) => {
+  (req: Request, res: Response, next: NextFunction): void => {
     fn(req, res, next).catch((err: Error) => next(err));
   };
 
