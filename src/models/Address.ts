@@ -1,12 +1,18 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../database";
 
-class Address extends Model {}
+class Address extends Model {
+  id!: string;
+  city!: string;
+  street!: string;
+  buildingNumber!: number;
+}
 
 Address.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     city: {
@@ -27,7 +33,8 @@ Address.init(
     sequelize,
     modelName: "Address",
     tableName: "addresses",
-    timestamps: false,
+    updatedAt: false,
+    timestamps: true,
   }
 );
 

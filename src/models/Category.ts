@@ -1,7 +1,11 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../database";
 
-class Category extends Model {}
+class Category extends Model {
+  id!: string;
+  name!: string;
+  description!: string;
+}
 
 Category.init(
   {
@@ -23,8 +27,8 @@ Category.init(
     sequelize,
     modelName: "Category",
     tableName: "categories",
-    timestamps: true,
     updatedAt: false,
+    timestamps: true,
   }
 );
 

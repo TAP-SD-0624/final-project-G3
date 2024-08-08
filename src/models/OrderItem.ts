@@ -1,7 +1,11 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../database";
 
-class OrderItem extends Model {}
+class OrderItem extends Model {
+  id!: string;
+  quantity!: number;
+  price!: number;
+}
 
 OrderItem.init(
   {
@@ -23,8 +27,8 @@ OrderItem.init(
     sequelize,
     modelName: "OrderItem",
     tableName: "orderItems",
-    timestamps: true,
     updatedAt: false,
+    timestamps: true,
   }
 );
 

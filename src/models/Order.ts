@@ -3,9 +3,9 @@ import sequelize from "../database";
 import { OrderStatus } from "../enums/orderStatus";
 
 class Order extends Model {
-  public id!: string;
-  public totalAmount!: number;
-  public orderStatus!: OrderStatus;
+  id!: string;
+  totalAmount!: number;
+  orderStatus!: OrderStatus;
 }
 
 Order.init(
@@ -40,8 +40,8 @@ Order.init(
     sequelize,
     modelName: "Order",
     tableName: "orders",
-    timestamps: true,
     updatedAt: false,
+    timestamps: true,
   }
 );
 

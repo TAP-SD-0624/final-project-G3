@@ -1,7 +1,10 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../database";
 
-class Brand extends Model {}
+class Brand extends Model {
+  id!: string;
+  name!: string;
+}
 
 Brand.init(
   {
@@ -18,8 +21,8 @@ Brand.init(
     sequelize,
     modelName: "Brand",
     tableName: "brands",
-    timestamps: true,
     updatedAt: false,
+    timestamps: true,
   }
 );
 
