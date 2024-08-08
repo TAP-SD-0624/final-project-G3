@@ -1,5 +1,5 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../database";
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../database';
 
 class Review extends Model {
   id!: string;
@@ -27,11 +27,11 @@ Review.init(
   },
   {
     sequelize,
-    modelName: "Review",
-    tableName: "reviews",
+    modelName: 'Review',
+    tableName: 'reviews',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default Review;

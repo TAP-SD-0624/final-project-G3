@@ -1,9 +1,12 @@
-import express, { Express, Request, Response, NextFunction } from 'express';
+import express, { Express, Request, Response } from 'express';
 import morgan from 'morgan';
 import authRouter from './routes/authRoutes';
 import errorController from './controllers/errorController';
 import rateLimit from 'express-rate-limit';
-import { endpointNotImplemented, tooManyRequests } from './controllers/suspicionController';
+import {
+  endpointNotImplemented,
+  tooManyRequests,
+} from './controllers/suspicionController';
 
 const app: Express = express();
 
@@ -13,11 +16,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // limit the number of requests sent to the server to under 500 requests per minute.
-app.use(rateLimit({
+app.use(
+  rateLimit({
     windowMs: 1000 * 60, // time in ms
     limit: 500,
-    handler: tooManyRequests    
-}));
+    handler: tooManyRequests,
+  }),
+);
 
 // authentication routes
 app.use('/api/auth', authRouter);
@@ -26,8 +31,8 @@ app.use('/api/auth', authRouter);
 app.route('*').all(endpointNotImplemented);
 
 // pass errors to the global error controller
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    errorController(err, req, res, next)
+app.use((err: Error, req: Request, res: Response) => {
+  errorController(err, req, res);
 });
 
 export default app;

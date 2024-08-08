@@ -1,5 +1,5 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../database";
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../database';
 
 class Category extends Model {
   id!: string;
@@ -20,17 +20,17 @@ Category.init(
       unique: true,
     },
     description: {
-      type: DataTypes.TEXT("medium"),
+      type: DataTypes.TEXT('medium'),
       allowNull: false,
     },
   },
   {
     sequelize,
-    modelName: "Category",
-    tableName: "categories",
+    modelName: 'Category',
+    tableName: 'categories',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default Category;

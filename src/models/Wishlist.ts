@@ -1,5 +1,5 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../database";
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../database';
 
 class WishList extends Model {
   id!: string;
@@ -15,11 +15,11 @@ WishList.init(
   },
   {
     sequelize,
-    modelName: "WishList",
-    tableName: "wishLists",
+    modelName: 'WishList',
+    tableName: 'wishLists',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default WishList;

@@ -1,6 +1,6 @@
-import { DataTypes, Model } from "sequelize";
-import UserRole from "../enums/userRoles";
-import sequelize from "../database";
+import { DataTypes, Model } from 'sequelize';
+import UserRole from '../enums/userRoles';
+import sequelize from '../database';
 
 class User extends Model {
   id!: string;
@@ -42,17 +42,17 @@ User.init(
     },
     role: {
       type: DataTypes.ENUM(...Object.values(UserRole)),
-      defaultValue: "user",
+      defaultValue: 'user',
       allowNull: false,
     },
   },
   {
     sequelize,
-    modelName: "User",
-    tableName: "users",
+    modelName: 'User',
+    tableName: 'users',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default User;
