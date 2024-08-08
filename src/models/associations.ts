@@ -8,6 +8,7 @@ import Product from "./Product";
 import User from "./User";
 import WishList from "./Wishlist";
 import Review from "./Review";
+import OrderItem from "./OrderItem";
 
 const associateModels = () => {
   // --------------- User Associations --------------- :
@@ -89,13 +90,13 @@ const associateModels = () => {
 
   // An order has many products through order items
   Order.belongsToMany(Product, {
-    through: "orderItems",
+    through: OrderItem,
     foreignKey: "orderId",
     onDelete: "CASCADE", // Orders will be deleted if an Order is deleted
     onUpdate: "CASCADE",
   });
   Product.belongsToMany(Order, {
-    through: "orderItems",
+    through: OrderItem,
     foreignKey: "productId",
     onDelete: "RESTRICT", // The logic of it to be implemented in the controllers
     onUpdate: "CASCADE",
