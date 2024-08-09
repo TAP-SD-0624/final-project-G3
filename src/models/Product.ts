@@ -2,13 +2,20 @@ import { Model, DataTypes } from "sequelize";
 import sequelize from "../database";
 
 class Product extends Model {
-  public stock!: number;
+  id!: string;
+  name!: string;
+  brief!: string;
+  description!: string;
+  stock!: number;
+  rating!: number;
+  isLimitedEdition!: boolean;
 }
 
 Product.init(
   {
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     name: {
@@ -44,8 +51,8 @@ Product.init(
     sequelize,
     modelName: "Product",
     tableName: "products",
-    timestamps: true,
     updatedAt: false,
+    timestamps: true,
   }
 );
 

@@ -1,12 +1,16 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../database";
 
-class Brand extends Model {}
+class Brand extends Model {
+  id!: string;
+  name!: string;
+}
 
 Brand.init(
   {
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     name: {
@@ -18,8 +22,8 @@ Brand.init(
     sequelize,
     modelName: "Brand",
     tableName: "brands",
-    timestamps: true,
     updatedAt: false,
+    timestamps: true,
   }
 );
 
