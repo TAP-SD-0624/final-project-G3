@@ -4,9 +4,7 @@ import APIError from "../utils/APIError";
 import { generateToken } from "../utils/jwtToken";
 import bcrypt from "bcryptjs";
 import { checkIfEmailExists, checkIfUserExists } from "../services/userService";
-import User from "../models/user";
-
-const TOKEN_EXPIRES_IN = process.env.TOKEN_EXPIRES_IN || '1m';  // Default to '1m' if not defined
+import User from "../models/User";
 
 const signup = errorHandler(
   async (req: Request, res: Response, next: NextFunction) => {

@@ -1,11 +1,11 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database';
 
-class WishListItem extends Model {
+class WishList extends Model {
   id!: string;
 }
 
-WishListItem.init(
+WishList.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -15,11 +15,11 @@ WishListItem.init(
   },
   {
     sequelize,
-    modelName: 'WishListItem',
-    tableName: 'wishListItems',
+    modelName: 'WishList',
+    tableName: 'wishLists',
     updatedAt: false,
     timestamps: true,
   },
 );
 
-export default WishListItem;
+export default WishList;

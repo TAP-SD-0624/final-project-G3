@@ -1,21 +1,19 @@
-import { Request, Response, NextFunction } from "express";
-import APIError from "../utils/APIError";
+import { NextFunction, Request, Response } from 'express';
+import APIError from '../utils/APIError';
 
-const errorController = (
-  err: Error,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  if (err instanceof APIError)
-    return res.status(err.statusCode).json({
-      status: "fail",
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const errorController = (err: Error, req: Request, res: Response, next: NextFunction): void => {
+  if (err instanceof APIError) {
+    res.status(err.statusCode).json({
+      status: 'fail',
       message: err.message,
     });
-  res.status(500).json({
-    status: "error",
-    message: err.message,
-  });
+  } else {
+    res.status(500).json({
+      status: 'error',
+      message: err.message,
+    });
+  }
 };
 
 export default errorController;

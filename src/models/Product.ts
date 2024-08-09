@@ -1,14 +1,21 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../database";
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../database';
 
 class Product extends Model {
-  public stock!: number;
+  id!: string;
+  name!: string;
+  brief!: string;
+  description!: string;
+  stock!: number;
+  rating!: number;
+  isLimitedEdition!: boolean;
 }
 
 Product.init(
   {
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     name: {
@@ -20,7 +27,7 @@ Product.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.TEXT("medium"),
+      type: DataTypes.TEXT('medium'),
       allowNull: false,
     },
     stock: {
@@ -42,11 +49,11 @@ Product.init(
   },
   {
     sequelize,
-    modelName: "Product",
-    tableName: "products",
-    timestamps: true,
+    modelName: 'Product',
+    tableName: 'products',
     updatedAt: false,
-  }
+    timestamps: true,
+  },
 );
 
 export default Product;

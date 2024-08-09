@@ -1,5 +1,5 @@
 export enum OrderStatus {
-  Completed = "Completed",
-  Processing = "Processing",
-  Canceled = "Canceled",
+  Completed = 'Completed',
+  Processing = 'Processing',
+  Canceled = 'Canceled',
 }
