@@ -5,7 +5,6 @@ import APIError from '../utils/APIError';
 const signup = errorHandler(
   async(req: Request, res: Response, next: NextFunction) => {
     return next(new APIError('something went wrong', 500));
-    const m = "mahmoud";
   },
 );
 
