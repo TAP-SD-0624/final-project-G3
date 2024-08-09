@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/server.ts",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix"
+    "lint": "eslint **/*.{js,mjs,cjs,ts}",
+    "lint:fix": "eslint  **/*.{js,mjs,cjs,ts} --fix"
   },
   "keywords": [],
   "author": "",
