@@ -35,6 +35,7 @@ export default [
       'space-before-function-paren': ['error', 'never'],
       'keyword-spacing': ['error', { before: true, after: true }],
       'space-infix-ops': 'error',
+      "indent": ["error", 2],
       'key-spacing': ['error', { beforeColon: false, afterColon: true }],
       'object-curly-spacing': ['error', 'always'],
       'array-bracket-spacing': ['error', 'never'],
