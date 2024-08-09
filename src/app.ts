@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 import morgan from 'morgan';
 import authRouter from './routes/authRoutes';
 import errorController from './controllers/errorController';
@@ -32,8 +32,8 @@ app.use('/api/auth', authRouter);
 app.route('*').all(endpointNotImplemented);
 
 // pass errors to the global error controller
-app.use((err: Error, req: Request, res: Response) => {
-  errorController(err, req, res);
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  errorController(err, req, res, next);
 });
 
 export default app;
