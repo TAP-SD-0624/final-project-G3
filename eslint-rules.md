@@ -4,7 +4,7 @@ This document explains the ESLint rules enforced in our project and the rational
 
 ## Note:
 - If you have issues with the code formatting each time you save a file or do a change, you need to stop the formate on save on your code editor.
-- in VS Code:
+### in VS Code:
 - Go to settings => Text Editor => Formatting => un check the "Formate On Save"
 - Save and sync the changes.
 
