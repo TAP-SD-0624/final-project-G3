@@ -1,7 +1,7 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../database";
-import Order from "./Order";
-import Product from "./Product";
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../database';
+import Order from './Order';
+import Product from './Product';
 
 class OrderItem extends Model {
   id!: string;
@@ -28,24 +28,24 @@ OrderItem.init(
       type: DataTypes.UUID,
       references: {
         model: Order,
-        key: "id",
+        key: 'id',
       },
     },
     productId: {
       type: DataTypes.UUID,
       references: {
         model: Product,
-        key: "id",
+        key: 'id',
       },
     },
   },
   {
     sequelize,
-    modelName: "OrderItem",
-    tableName: "orderItems",
+    modelName: 'OrderItem',
+    tableName: 'orderItems',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default OrderItem;
