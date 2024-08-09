@@ -1,6 +1,6 @@
-import { DataTypes, Model } from "sequelize";
-import UserRole from "../enums/userRoles";
-import sequelize from "../database";
+import { DataTypes, Model } from 'sequelize';
+import UserRole from '../enums/userRoles';
+import sequelize from '../database';
 
 class User extends Model {
   id!: string;
@@ -33,9 +33,9 @@ User.init(
       allowNull: false,
       validate: {
         isEmail: {
-          msg: 'Invalid email format'
-        }
-      }
+          msg: 'Invalid email format',
+        },
+      },
     },
     dateOfBirth: {
       type: DataTypes.DATEONLY,
@@ -47,17 +47,17 @@ User.init(
     },
     role: {
       type: DataTypes.ENUM(...Object.values(UserRole)),
-      defaultValue: "user",
+      defaultValue: 'user',
       allowNull: false,
     },
   },
   {
     sequelize,
-    modelName: "User",
-    tableName: "users",
+    modelName: 'User',
+    tableName: 'users',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default User;
