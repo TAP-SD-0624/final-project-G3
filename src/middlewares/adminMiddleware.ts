@@ -4,7 +4,7 @@ import User from '../models/User';
 import errorHandler from '../utils/errorHandler';
 
 const adminMiddleware = errorHandler(
-  (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction) => {
     const user = (req as any).user as User;
 
     if (!user) {
