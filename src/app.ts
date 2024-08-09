@@ -27,7 +27,8 @@ app.use(
 // authentication routes
 app.use('/api/auth', authRouter);
 
-// whenever a user sends a request to an unimplemented endpoint, they will get a 404 status code response
+// whenever a user sends a request to an unimplemented endpoint,
+// they will get a 404 status code response
 app.route('*').all(endpointNotImplemented);
 
 // pass errors to the global error controller
