@@ -11,11 +11,21 @@ const authMiddleware = errorHandler(
       return next(new APIError("Unauthorized: No token provided", 401));
     }
 
-    const token = authHeader.split(" ")[1];
+    let token = authHeader.split(" ")[1];
+    // If not found in the header, try to get it from cookies
+    if (!token) {
+      token = req.cookies?.token; 
+    }
 
-    const decoded = decodeToken(token) as { sub: string };
+    // If token is still not found
+    if (!token) {
+      return next(new APIError("Unauthorized: No token provided", 401));
+    }
 
-    const user = await User.findByPk(decoded.sub);
+    const decoded: any = await decodeToken(token);
+    const userId = decoded.sub;
+    const user = await User.findByPk(userId);
+
     if (!user) {
       return next(new APIError("Unauthorized: User not found", 401));
     }

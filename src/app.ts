@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import authRouter from './routes/authRoutes';
 import errorController from './controllers/errorController';
 import rateLimit from 'express-rate-limit';
+import cookieParser from 'cookie-parser';
 import { endpointNotImplemented, tooManyRequests } from './controllers/suspicionController';
 
 const app: Express = express();
@@ -11,6 +12,7 @@ const app: Express = express();
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser()); // For parsing cookies
 
 // limit the number of requests sent to the server to under 500 requests per minute.
 app.use(rateLimit({
