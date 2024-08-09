@@ -1,6 +1,6 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../database";
-import { OrderStatus } from "../enums/orderStatus";
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../database';
+import { OrderStatus } from '../enums/orderStatus';
 
 class Order extends Model {
   id!: string;
@@ -27,11 +27,11 @@ Order.init(
   },
   {
     sequelize,
-    modelName: "Order",
-    tableName: "orders",
+    modelName: 'Order',
+    tableName: 'orders',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default Order;

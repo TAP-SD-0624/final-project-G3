@@ -1,5 +1,5 @@
-import sequelize from "../database";
-import { DataTypes, Model } from "sequelize";
+import sequelize from '../database';
+import { DataTypes, Model } from 'sequelize';
 
 class ProductImage extends Model {
   id!: string;
@@ -21,11 +21,11 @@ ProductImage.init(
   },
   {
     sequelize,
-    modelName: "ProductImage",
-    tableName: "productImages",
+    modelName: 'ProductImage',
+    tableName: 'productImages',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default ProductImage;

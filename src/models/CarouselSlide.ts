@@ -1,5 +1,5 @@
-import { DataTypes, Model } from "sequelize";
-import sequelize from "../database";
+import { DataTypes, Model } from 'sequelize';
+import sequelize from '../database';
 
 class CarouselSlide extends Model {
   id!: string;
@@ -35,11 +35,11 @@ CarouselSlide.init(
   },
   {
     sequelize,
-    modelName: "CarouselSlide",
-    tableName: "carouselSlides",
+    modelName: 'CarouselSlide',
+    tableName: 'carouselSlides',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default CarouselSlide;

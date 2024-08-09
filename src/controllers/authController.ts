@@ -1,21 +1,23 @@
-import { NextFunction, Request, Response } from "express";
-import errorHandler from "../utils/errorHandler";
-import APIError from "../utils/APIError";
+import { NextFunction, Request, Response } from 'express';
+import errorHandler from '../utils/errorHandler';
+import APIError from '../utils/APIError';
 
-const signup = errorHandler(async (req: Request, res: Response, next: NextFunction) => {
+const signup = errorHandler(
+  async(req: Request, res: Response, next: NextFunction) => {
     return next(new APIError('something went wrong', 500));
-});
+  },
+);
 
-const login = errorHandler(async (req: Request, res: Response, next: NextFunction) => {
+const login = errorHandler(
+  async(req: Request, res: Response, next: NextFunction) => {
     return next(new APIError('something went wrong', 500));
-});
+  },
+);
 
-const logout = errorHandler(async (req: Request, res: Response, next: NextFunction) => {
+const logout = errorHandler(
+  async(req: Request, res: Response, next: NextFunction) => {
     return next(new APIError('something went wrong', 500));
-});
+  },
+);
 
-export {
-    signup,
-    login,
-    logout
-};
+export { signup, login, logout };

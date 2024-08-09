@@ -1,5 +1,5 @@
-import { Model, DataTypes } from "sequelize";
-import sequelize from "../database";
+import { Model, DataTypes } from 'sequelize';
+import sequelize from '../database';
 
 class Product extends Model {
   id!: string;
@@ -27,7 +27,7 @@ Product.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.TEXT("medium"),
+      type: DataTypes.TEXT('medium'),
       allowNull: false,
     },
     stock: {
@@ -49,11 +49,11 @@ Product.init(
   },
   {
     sequelize,
-    modelName: "Product",
-    tableName: "products",
+    modelName: 'Product',
+    tableName: 'products',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default Product;

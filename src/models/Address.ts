@@ -1,5 +1,5 @@
-import { DataTypes, Model } from "sequelize";
-import sequelize from "../database";
+import { DataTypes, Model } from 'sequelize';
+import sequelize from '../database';
 
 class Address extends Model {
   id!: string;
@@ -31,11 +31,11 @@ Address.init(
   },
   {
     sequelize,
-    modelName: "Address",
-    tableName: "addresses",
+    modelName: 'Address',
+    tableName: 'addresses',
     updatedAt: false,
     timestamps: true,
-  }
+  },
 );
 
 export default Address;
